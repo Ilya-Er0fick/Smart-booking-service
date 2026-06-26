@@ -1,24 +1,22 @@
 package gui;
 
+import timetable.algorithmTimetable;
 import javax.swing.*;
 import java.awt.*;
 
 public class windowOpen extends JFrame{
     private int quantilyDate = 0;
-    private JLabel countLabel;
     private JButton bookNewMeeting;
     private JButton cancelMeeting;
 
     public windowOpen(){
-        super("SmartBooking");
+        algorithmTimetable algorithmTimetable = new algorithmTimetable();
+        super(algorithmTimetable.nameMonth());
 
-        countLabel = new JLabel("Book meeting:" + quantilyDate);
-        bookNewMeeting = new JButton("Booking free employee");
-        cancelMeeting = new JButton("Cancel meeting");
+        bookNewMeeting = new JButton("Забронировать свободного сотрудника");
+        cancelMeeting = new JButton("Отменить встречу");
 
         JPanel buttonsPanel = new JPanel(new FlowLayout());
-
-        buttonsPanel.add(countLabel, BorderLayout.NORTH);
 
         buttonsPanel.add(bookNewMeeting);
         buttonsPanel.add(cancelMeeting);

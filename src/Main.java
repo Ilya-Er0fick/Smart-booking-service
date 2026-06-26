@@ -1,10 +1,9 @@
-import gui.windowOpen;
-import javax.swing.JFrame;
+import gui.starWindow;
 
 
 public class Main {
     public static void main(String[] args) {
-        windowOpen app = new windowOpen();
+        starWindow app = new starWindow();
         app.setVisible(true);
         app.pack();
     }
