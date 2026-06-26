@@ -1,4 +1,4 @@
-import gui.starWindow;
+import gui.window.starWindow;
 
 
 public class Main {

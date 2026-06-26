@@ -1,6 +1,5 @@
-package gui;
+package gui.visualcalendar;
 
-import java.awt.*;
 public class generationCalendar {
     //Object calendare[][] = {},{}
 }

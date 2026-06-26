@@ -1,6 +1,8 @@
-package gui;
+package gui.window;
 
 import timetable.algorithmTimetable;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
 
