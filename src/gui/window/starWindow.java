@@ -12,8 +12,11 @@ public class starWindow extends JFrame {
     private int chooseClien = 0;
     private JButton iAmAdministrator;
     private JButton iAmClient;
+    private volatile boolean isStopped = false;
+
 
     public starWindow(){
+
         super("Добро пожаловать! Вы сотрудник или клиент?");
 
         setBounds(200, 200, 200, 200);
@@ -28,6 +31,9 @@ public class starWindow extends JFrame {
 
         add(buttonsPanel, BorderLayout.CENTER);
         initListeners();
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+
     }
 
     private void initListeners(){
@@ -38,7 +44,7 @@ public class starWindow extends JFrame {
                windowOpenAdmin app = new windowOpenAdmin();
                app.setVisible(true);
                app.pack();
-               return;
+               isStopped = true;
            }
        });
        iAmClient.addActionListener(new ActionListener() {
@@ -48,7 +54,7 @@ public class starWindow extends JFrame {
                windowOpen app = new windowOpen();
                app.setVisible(true);
                app.pack();
-               return;
+               isStopped = true;
            }
        });
     }
