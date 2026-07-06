@@ -14,6 +14,11 @@ public class Main {
             test.readingDataBase();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+        try {
+            test.quantityLinesInDataBase();
+        } catch (SQLException e){
+            throw new RuntimeException(e);
         }*/
     }
 }
