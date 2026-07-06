@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Locale;
+import timetable.readingDataBase;
 
 public class algorithmTimetable {
     public void numberMonth(){
@@ -13,9 +14,11 @@ public class algorithmTimetable {
      public String nameMonth(){
         LocalDate today = LocalDate.now();
         String nameMonth = today.getMonth()
-                .getDisplayName(TextStyle.FULL, new Locale("ru"));
+                .getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru"));
         return nameMonth;
      }
 
+    /*public  void freeSlot(){
 
+    }*/
 }

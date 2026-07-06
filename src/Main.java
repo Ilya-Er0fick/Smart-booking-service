@@ -1,13 +1,19 @@
 import gui.window.starWindow;
 import timetable.readingDataBase;
 
+import java.sql.SQLException;
+
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         starWindow app = new starWindow();
         readingDataBase test = new readingDataBase();
         app.setVisible(true);
         app.pack();
-        test.readFile();
+        /*try {
+            test.readingDataBase();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }*/
     }
 }
