@@ -1,8 +1,7 @@
 package gui.window;
 
-import timetable.algorithmTimetable;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import timetable.dateTimetable;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,8 +11,8 @@ public class windowOpen extends JFrame{
     private JButton cancelMeeting;
 
     public windowOpen(){
-        algorithmTimetable algorithmTimetable = new algorithmTimetable();
-        super(algorithmTimetable.nameMonth());
+        dateTimetable dateTimetable = new dateTimetable();
+        super(dateTimetable.nameMonth());
 
         bookNewMeeting = new JButton("Забронировать свободного сотрудника");
         cancelMeeting = new JButton("Отменить встречу");

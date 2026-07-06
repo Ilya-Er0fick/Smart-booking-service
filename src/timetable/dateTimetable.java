@@ -4,9 +4,8 @@ import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Locale;
-import timetable.readingDataBase;
 
-public class algorithmTimetable {
+public class dateTimetable {
     public void numberMonth(){
         Calendar calendar = Calendar.getInstance();
         int month = calendar.get(Calendar.MONTH) + 1;
