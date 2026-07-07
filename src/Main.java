@@ -10,7 +10,7 @@ public class Main {
         readingDataBase test = new readingDataBase();
         app.setVisible(true);
         app.pack();
-        /*try {
+        try {
             test.readingDataBase();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -19,6 +19,6 @@ public class Main {
             test.quantityLinesInDataBase();
         } catch (SQLException e){
             throw new RuntimeException(e);
-        }*/
+        }
     }
 }
