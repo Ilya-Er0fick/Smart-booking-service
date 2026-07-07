@@ -1,4 +1,12 @@
 package timetable;
+/**
+ * Данный файл необходим для чтения информации из sql базы данных, в дальнейшем полученная информация переносится
+ * в использование файла bufferBetwenDataBaseAndCode.java с помощью методов через массивы.
+ * Здесь есть следующие методы:
+ * readingDataBase() -- производит чтение базы данных
+ * quantityLinesInDataBase() -- производит вычисление длины, т.е. количества строк, в БД, эта информация будет
+ * использована в bufferBetwenDataBaseAndCode.java
+ */
 
 import java.sql.Connection;
 import java.sql.DriverManager;
