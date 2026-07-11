@@ -20,6 +20,7 @@ public class windowOpen extends JFrame{
     private int quantilyDate = 0;
     private JButton bookNewMeeting;
     private JButton cancelMeeting;
+    private Employee bookedEmployee = null;
 
     public windowOpen(){
         dateTimetable dateTimetable = new dateTimetable();
@@ -36,6 +37,7 @@ public class windowOpen extends JFrame{
         add(buttonsPanel, BorderLayout.SOUTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
         bookNewMeeting.addActionListener(e -> {
             readingDataBase db = new readingDataBase();
             algorithmTimetable algo = new algorithmTimetable();
@@ -49,23 +51,43 @@ public class windowOpen extends JFrame{
             List<String> districts = algo.getAllDistricts(allEmployyes);
 
             JComboBox<String> districtBox = new JComboBox<>(districts.toArray(new String[0]));
-            String selectedDistrict = (String) districtBox.getSelectedItem();
 
-            List<Employee> candidates = algo.findBestCandidates(allEmployyes, selectedDistrict);
+            int result = JOptionPane.showConfirmDialog(
+                    this,
+                    districtBox,
+                    "Выберите ваш район",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
+            );
+            if (result == JOptionPane.OK_OPTION){
+                String selectedDistrict = (String) districtBox.getSelectedItem();
 
-            if (candidates.isEmpty()){
-                JOptionPane.showMessageDialog(this,"К сожалению, данный район пока что не обслуживается");
-            } else {
-                Employee best = candidates.get(0);
-                JOptionPane.showMessageDialog(this,
-                        "Назначен сотрудник: " + best.getLastname() + " " + best.getFirstname() + " " + best.getMidlename() +
-                        "\nРейтинг: " + best.getRating() +
-                        "\nРайон: " + best.getDistrict());
+                List<Employee> candidates = algo.findBestCandidates(allEmployyes, selectedDistrict);
+
+                if (candidates.isEmpty()){
+                    JOptionPane.showMessageDialog(this,"К сожалению, данный район пока что не обслуживается");
+                } else {
+                    Employee best = candidates.get(0);
+                    this.bookedEmployee = best;
+                    JOptionPane.showMessageDialog(this,
+                            "Назначен сотрудник: " + best.getLastname() + " " + best.getFirstname() + " " + best.getMidlename() +
+                                    "\nРейтинг: " + best.getRating() +
+                                    "\nРайон: " + best.getDistrict());
+                }
             }
         });
 
         cancelMeeting.addActionListener(e ->{
-            JOptionPane.showMessageDialog(this, "Встреча отменена");
+            if (this.bookedEmployee != null){
+                JOptionPane.showMessageDialog(this,
+                        "Встреча с сотрудником " + bookedEmployee.getLastname() + " " +
+                                bookedEmployee.getFirstname() + " " + bookedEmployee.getMidlename() + " "
+                                + "успешно отменена");
+
+                this.bookedEmployee = null;
+            } else {
+                JOptionPane.showMessageDialog(this, "У вас нет активных бронирований для отмены. ");
+            }
 
         });
 
