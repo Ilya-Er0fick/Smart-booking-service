@@ -12,7 +12,8 @@ public class Employee {
     private String district;
     private int maxclients;
 
-    public Employee(int id, String lastname, String firstname, String midlename, int rating, String district, int maxclients){
+    public Employee(int id, String lastname, String firstname, String midlename, int rating,
+                    String district, int maxclients){
         this.id = id;
         this.lastname = lastname;
         this.firstname = firstname;
@@ -42,11 +43,17 @@ public class Employee {
         return rating;
     }
 
-    public String getDistrict() {
-        return district;
-    }
+    public String getDistrict() { return district; }
 
     public int getMaxclients() {
         return maxclients;
+    }
+
+    public static String getEmployeeFullName(Employee emp){
+        return emp.lastname + " " + emp.firstname + " " + emp.midlename;
+    }
+
+    public String toString(){
+        return lastname + " " + firstname + " " + midlename +  " (ID " + id + " ) ";
     }
 }
