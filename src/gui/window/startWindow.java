@@ -18,12 +18,12 @@ import java.awt.*;
 import java.sql.SQLException;
 import java.util.List;
 
-public class starWindow extends JFrame {
+public class startWindow extends JFrame {
 
     private JButton iAmAdministrator;
     private JButton iAmClient;
 
-    public starWindow() {
+    public startWindow() {
         super("Добро пожаловать! Вы сотрудник или клиент?");
         setBounds(200, 200, 300, 140);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

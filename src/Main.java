@@ -1,4 +1,4 @@
-import gui.window.starWindow;
+import gui.window.startWindow;
 import timetable.readingDataBase;
 
 import java.sql.SQLException;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        starWindow app = new starWindow();
+        startWindow app = new startWindow();
         readingDataBase test = new readingDataBase();
         app.setVisible(true);
         app.pack();
